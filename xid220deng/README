@@ -1,0 +1,23 @@
+This is the readme file.
+
+Go to xid220deng/xid220, and run the following commands
+
+javac -cp ./:./ojdbc8.jar Advlist.java
+
+jar cfmv xid220.jar Manifest.txt Advlist.class
+
+java -jar xid220.jar
+
+
+ideally, start from create your saving and checking account and use deposit/withdraw and make fully use of saving/checking.
+
+ recommend Manager/ATM/Unsecure Loan/credit service. please note manager id is 1001 there is only one manager in the system
+
+transfer interface is also recommanded, but for now it will only handle the case transfer found from checking to saving or from saving to checking under the condition that the accounts belongs to
+same customer and it is user’s responsibility to check he/she have both checking and saving account, or the fund may lost.
+
+The purchase interface only display 1 item, but you could choose all the item id in the database
+
+The interface will not allow you to create new customer for now, you can directly create customer in database.
+
+Mortgage interface not available

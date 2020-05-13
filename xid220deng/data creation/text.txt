@@ -1,0 +1,81 @@
+create table Checking(
+checking_id NUMBER(4) NOT NULL primary key,
+firstname VARCHAR2(1000) NOT NULL,
+lastname VARCHAR2(1000) NOT NULL,
+address  VARCHAR2(1000) NOT NULL,
+interest_rate NUMBER(8,2) NOT NULL,
+balance NUMBER(8,2) NOT NULL,
+debit_num NUMBER(8),
+);
+
+create table Saving(
+saving_id NUMBER(4) NOT NULL primary key,
+firstname VARCHAR2(1000) NOT NULL,
+lastname VARCHAR2(1000)  NOT NULL,
+interest_rate NUMBER(8,2)  NOT NULL ,
+balance NUMBER(8,2) NOT NULL ,
+saving_minimum NUMBER(8,2) NOT NULL,
+penalty NUMBER(8,2) NOT NULL,
+);
+create table Customer(
+cust_id NUMBER(4) NOT NULL PRIMARY KEY,
+cust_firstname VARCHAR2(1000) NOT NULL,
+cust_lastname VARCHAR2(1000) NOT NULL,
+checking_id NUMBER(4),
+saving_id NUMBER(4),
+address  VARCHAR2(1000) NOT NULL,
+foreign key(checking_id) references Checking(checking_id),
+foreign key(saving_id) references Saving(saving_id)
+);
+
+create table Manager(
+manager_id NUMBER(4) NOT NULL primary key,
+Cinterest_rate NUMBER(8,2) NOT NULL,
+Sinterest_rate NUMBER(8,2) NOT NULL,
+Sminimum NUMBER(8,2) NOT NULL,
+Spenalty NUMBER(8,2) NOT NULL,
+Minterest_rate NUMBER(8,2) NOT NULL,
+Mmonthly_payment NUMBER(8,2) NOT NULL,
+Uinterest_rate NUMBER(8,2) NOT NULL,
+Umonthly_payment NUMBER(8,2) NOT NULL,
+credit_interest_rate NUMBER(8,2) NOT NULL,
+credit_limit NUMBER(8,2) NOT NULL
+ );
+
+
+create table Vendor(
+vendor_id  NUMBER(10) NOT NULL primary key,
+firstname VARCHAR2(1000) NOT NULL,
+lastname VARCHAR2(1000)  NOT NULL,
+item_price  NUMBER(8,2)  NOT NULL
+);
+
+create table Unsecure(
+id NUMBER(10) NOT NULL primary key,
+firstname VARCHAR2(1000) NOT NULL,
+lastname VARCHAR2(1000)  NOT NULL,
+interest_rate NUMBER(8,2)  NOT NULL ,
+amount NUMBER(8,2) NOT NULL ,
+monthly_payment NUMBER(8,2) NOT NULL
+);
+
+create table Mortgage(
+id NUMBER(10) NOT NULL primary key,
+firstname VARCHAR2(1000) NOT NULL,
+lastname VARCHAR2(1000)  NOT NULL,
+interest_rate NUMBER(8,2)  NOT NULL ,
+amount NUMBER(8,2) NOT NULL ,
+monthly_payment NUMBER(8,2) NOT NULL,
+address VARCHAR2(1000) NOT NULL,
+foreign key(id) references Customer(cust_id)
+);
+
+create table Credit(
+credit_id NUMBER(10) NOT NULL primary key,
+firstname VARCHAR2(1000) NOT NULL,
+lastname VARCHAR2(1000)  NOT NULL,
+interest_rate NUMBER(10,2)  NOT NULL ,
+balance NUMBER(10,2) NOT NULL ,
+credit_limit NUMBER(10,2) NOT NULL,
+credit_num NUMBER(10) NOT NULL
+);
